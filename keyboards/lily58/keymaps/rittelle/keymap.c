@@ -51,7 +51,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   XXXXXXX, KC_PGUP, KC_BSPC, KC_UP,   KC_DEL,  KC_PGDN,                   XXXXXXX, KC_KP_7, KC_KP_8, KC_KP_9, KC_PPLS, KC_PMNS, \
   KC_LALT, KC_HOME, KC_LEFT, KC_DOWN, KC_RIGHT,KC_END,                    XXXXXXX, KC_KP_4, KC_KP_5, KC_KP_6, DE_COMM, DE_DOT,  \
   KC_LSFT, KC_ESC,  KC_TAB,  KC_INS,  KC_ENT,  KC_UNDO, KC_LGUI, KC_RGUI, XXXXXXX, KC_KP_1, KC_KP_2, KC_KP_3, XXXXXXX, XXXXXXX, \
-                             XXXXXXX, KC_LCTL, XXXXXXX, KC_P0,   _______, XXXXXXX, KC_RCTL, KC_KP_0 \
+                             XXXXXXX, KC_LCTL, XXXXXXX, KC_MYCM, _______, XXXXXXX, KC_RCTL, KC_KP_0 \
 ),
 /* RAISE
  * ,-----------------------------------------.                    ,-----------------------------------------.
@@ -59,9 +59,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * |  F1  |  F2  |  F3  |  F4  |  F5  |  F6  |                    |  F7  |  F8  |  F9  |  F10 |  F11 | F12  |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * | LALT |  F2  |  F3  |  F4  |  F5  |  F6  |-------.    ,-------|      | Left | Down |  Up  |Right |      |
+ * | LALT |      |      |      |      |      |-------.    ,-------|      |      |      |      |      |      |
  * |------+------+------+------+------+------| LGUI  |    |  RGUI |------+------+------+------+------+------|
- * |LShift|  F8  |  F9  | F10  | F11  | F12  |-------|    |-------|   +  |   -  |   =  |   [  |   ]  |   \  |
+ * |LShift|      |      |      |      |      |-------|    |-------|      |      |      |      |      |      |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
  *                   | LAY7 | LCTRL| CLCK | /Space  /       \ LAY4 \  | CLCK | LCTRL|      |
  *                   |      |      |      |/       /         \      \ |      |      |      |
@@ -166,9 +166,12 @@ void render_rgb_effect(uint8_t effect) {
     str[2] = '\0';
 
     oled_write_ln_P(PSTR("RGB"), false);
-    oled_write_P(PSTR("  "), false);
-    oled_write_ln(str, false);
-    (void) str;
+    if (effect != 0) {
+        oled_write_P(PSTR("  "), false);
+        oled_write_ln(str, false);
+    } else {
+        oled_write_ln_P(PSTR(" off"), false);
+    }
 }
 
 void render_status_main(void) {
