@@ -43,6 +43,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define RGBLIGHT_SPLIT
 #define RGBLIGHT_LIMIT_VAL 120
 
+// RGB Driver Setup
+#define DRIVER_LED_TOTAL 70
+
 // Underglow
 /*
 #undef RGBLED_NUM

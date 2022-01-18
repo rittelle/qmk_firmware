@@ -48,7 +48,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_LAYER4] = LAYOUT( \
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, \
-  KC_PGUP, KC_BSPC, KC_UP,   KC_DEL,  KC_PGDN, XXXXXXX,                   XXXXXXX, KC_KP_7, KC_KP_8, KC_KP_9, KC_PPLS, KC_PMNS, \
+  XXXXXXX, KC_PGUP, KC_BSPC, KC_UP,   KC_DEL,  KC_PGDN,                   XXXXXXX, KC_KP_7, KC_KP_8, KC_KP_9, KC_PPLS, KC_PMNS, \
   KC_LALT, KC_HOME, KC_LEFT, KC_DOWN, KC_RIGHT,KC_END,                    XXXXXXX, KC_KP_4, KC_KP_5, KC_KP_6, DE_COMM, DE_DOT,  \
   KC_LSFT, KC_ESC,  KC_TAB,  KC_INS,  KC_ENT,  KC_UNDO, KC_LGUI, KC_RGUI, XXXXXXX, KC_KP_1, KC_KP_2, KC_KP_3, XXXXXXX, XXXXXXX, \
                              XXXXXXX, KC_LCTL, XXXXXXX, KC_P0,   _______, XXXXXXX, KC_RCTL, KC_KP_0 \
@@ -160,14 +160,15 @@ void render_mod_status(uint8_t modifiers) {
 void render_rgb_effect(uint8_t effect) {
     char digit0 = effect % 10 + '0';
     char digit1 = (effect / 10) % 10 + '0';
-    char str[2] = {'\0', '\0'};
-
-    oled_write_ln_P(PSTR("Effect"), false);
-    oled_write_P(PSTR("  "), false);
+    static char str[3];
     str[0] = digit1;
-    oled_write_P(str, false);
-    str[0] = digit0;
-    oled_write_P(str, false);
+    str[1] = digit0;
+    str[2] = '\0';
+
+    oled_write_ln_P(PSTR("RGB"), false);
+    oled_write_P(PSTR("  "), false);
+    oled_write_ln(str, false);
+    (void) str;
 }
 
 void render_status_main(void) {
@@ -183,12 +184,12 @@ void render_status_main(void) {
     render_mod_status(get_mods());
     // Add a empty line
     oled_write_P(PSTR("-----"), false);
-    render_rgb_effect(rgb_matrix_get_mode());
+    render_rgb_effect(rgblight_get_mode());
     oled_write_P(PSTR("-----"), false);
     /* render_keylogger_status(); */
 }
 
-void oled_task_user(void) {
+bool oled_task_user(void) {
   if (is_keyboard_master()) {
     // If you want to change the display of OLED, you need to change here
 
@@ -204,6 +205,7 @@ void oled_task_user(void) {
   } else {
     oled_write(read_logo(), false);
   }
+  return false;
 }
 #endif // OLED_ENABLE
 
