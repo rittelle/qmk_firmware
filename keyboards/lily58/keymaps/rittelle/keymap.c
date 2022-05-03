@@ -49,9 +49,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_LAYER4] = LAYOUT( \
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, \
   XXXXXXX, KC_PGUP, KC_BSPC, KC_UP,   KC_DEL,  KC_PGDN,                   XXXXXXX, KC_KP_7, KC_KP_8, KC_KP_9, KC_PPLS, KC_PMNS, \
-  KC_LALT, KC_HOME, KC_LEFT, KC_DOWN, KC_RIGHT,KC_END,                    XXXXXXX, KC_KP_4, KC_KP_5, KC_KP_6, DE_COMM, DE_DOT,  \
-  KC_LSFT, KC_ESC,  KC_TAB,  KC_INS,  KC_ENT,  KC_UNDO, KC_LGUI, KC_RGUI, XXXXXXX, KC_KP_1, KC_KP_2, KC_KP_3, XXXXXXX, XXXXXXX, \
-                             XXXXXXX, KC_LCTL, XXXXXXX, KC_MYCM, _______, XXXXXXX, KC_RCTL, KC_KP_0 \
+  _______, KC_HOME, KC_LEFT, KC_DOWN, KC_RIGHT,KC_END,                    XXXXXXX, KC_KP_4, KC_KP_5, KC_KP_6, DE_COMM, DE_DOT,  \
+  _______, KC_ESC,  KC_TAB,  KC_INS,  KC_ENT,  KC_UNDO, KC_LGUI, KC_RGUI, XXXXXXX, KC_KP_1, KC_KP_2, KC_KP_3, XXXXXXX, _______, \
+                             XXXXXXX, _______, XXXXXXX, KC_MYCM, _______, XXXXXXX, _______, KC_KP_0 \
 ),
 /* RAISE
  * ,-----------------------------------------.                    ,-----------------------------------------.
@@ -71,8 +71,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_LAYER7] = LAYOUT( \
   KC_F19,  KC_F20,  KC_F21,  KC_F22,  KC_F23,  KC_F24,                      KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  \
   KC_F13,  KC_F14,  KC_F15,  KC_F16,  KC_F17,  KC_F18,                      KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   \
-  KC_LALT, RGB_MOD, RGB_HUI, RGB_SAI, RGB_VAI, RGB_SPI,                     KC_MPRV, KC_MPLY, KC_MNXT, KC_MUTE, KC_VOLD, KC_VOLU, \
-  KC_LSFT,RGB_RMOD, RGB_HUD, RGB_SAD, RGB_VAD, RGB_SPD,  KC_LGUI, KC_RGUI,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, \
+  _______, RGB_MOD, RGB_HUI, RGB_SAI, RGB_VAI, RGB_SPI,                     KC_MPRV, KC_MPLY, KC_MNXT, KC_MUTE, KC_VOLD, KC_VOLU, \
+  _______,RGB_RMOD, RGB_HUD, RGB_SAD, RGB_VAD, RGB_SPD,  KC_LGUI, KC_RGUI,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, \
                              _______, _______, XXXXXXX,  RGB_TOG, XXXXXXX,  XXXXXXX, _______, XXXXXXX \
 ),
 /* ADJUST
