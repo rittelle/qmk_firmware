@@ -53,3 +53,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define RGBLIGHT_ANIMATIONS
 #define RGBLIGHT_SLEEP
 */
+
+// Other configuration
+// Require only two taps to lock a layer
+#define TAPPING_TOGGLE 2

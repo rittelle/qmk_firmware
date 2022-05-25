@@ -30,7 +30,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_TAB,   DE_Q,   DE_W,    DE_E,    DE_R,    DE_T,                      DE_Z,    DE_U,    DE_I,    DE_O,    DE_P,    DE_UDIA, \
   KC_LALT,  DE_A,   DE_S,    DE_D,    DE_F,    DE_G,                      DE_H,    DE_J,    DE_K,    DE_L,    DE_ODIA, DE_ADIA, \
   KC_LSFT,  DE_Y,   DE_X,    DE_C,    DE_V,    DE_B,    KC_LGUI, KC_RGUI, DE_N,    DE_M,    DE_COMM, DE_DOT,  DE_MINS, KC_RSFT, \
-                         TT(_LAYER7), KC_LCTL, KC_CLCK,  KC_SPC, MO(_LAYER4), KC_CLCK, KC_RCTL, XXXXXXX \
+                         TT(_LAYER7), KC_LCTL, KC_CLCK,  KC_SPC, TT(_LAYER4), KC_CLCK, KC_RCTL, XXXXXXX \
 ),
 /* LOWER
  * ,-----------------------------------------.                    ,-----------------------------------------.
