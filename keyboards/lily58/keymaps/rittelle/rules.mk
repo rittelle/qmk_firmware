@@ -32,3 +32,7 @@ SRC +=  ./lib/rgb_state_reader.c \
         # ./lib/mode_icon_reader.c \
         # ./lib/host_led_state_reader.c \
         # ./lib/timelogger.c \
+
+# fix for -Werror-array-bounds:
+# https://gcc.gnu.org/bugzilla/show_bug.cgi?id=105523
+CFLAGS += --param=min-pagesize=0
